@@ -1,8 +1,9 @@
 package com.mypractice.restaurant;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class OrderList {
+public class OrderList implements Serializable {
 private List<Product> products;
 private double totalPrice;
 
@@ -21,6 +22,10 @@ public double getTotalPrice() {
 }
 public void setTotalPrice(double totalPrice) {
 	this.totalPrice = totalPrice;
+}
+@Override
+public String toString() {
+	return "OrderList [products=" + products + ", totalPrice=" + totalPrice + "]";
 }
 
 }

@@ -1,6 +1,8 @@
 package com.mypractice.restaurant;
 
-public class Add {
+import java.io.Serializable;
+
+public class Add implements Serializable {
 	private int id;
 private String name;
 public Add(int id, String name) {

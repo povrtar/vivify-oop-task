@@ -75,7 +75,6 @@ List<Product> orderedProducts;
 			}
 	if(productId==99) {
 		completeOrderList(table);
-		
 		break;
 	}
 	if (productId==0) {
@@ -86,6 +85,7 @@ List<Product> orderedProducts;
 	orderList.setProducts(orderedProducts);
 	table.setOrderList(orderList);
 	writeOrderList(orderList);
+	
 	}
 }
 public static void writeOrderList(OrderList orderList) {	
@@ -119,7 +119,7 @@ public static void writeAllLists() {
 	}	
 }
 private static void  addingAdds(Product product) {
-	 System.out.println("If you want some of adds just input id number!");
+	 
 		
 	 List<Add> tempAdds=new ArrayList<>();
 	 for (Add add:adds) {
@@ -127,6 +127,7 @@ private static void  addingAdds(Product product) {
 	 }
 	 int addId=-1;
 	 while(addId!=0) {
+		 System.out.println("If you want some of adds just input id number!");
 		 System.out.println("For exit input 0!");
 		 addId=PomocnaKlasa.ocitajCeoBroj();
 		 if(addId==0) {
@@ -139,6 +140,7 @@ private static void  addingAdds(Product product) {
 		 }
 		else {
 			 tempAdds.add(adds.get(addId-1));
+			 System.out.println("Yout just added "+adds.get(addId-1).getName());
 			  ((Food) product).setAdds(tempAdds);
 		 }
 	 }System.out.println("Product Id "+product.getId());
@@ -148,7 +150,7 @@ private static void  addingAdds(Product product) {
 private static void completeOrderList(Table table) {
 	System.out.println("Charge "+table.getTotal());
 	OrderList last;
-	last=table.getOrderList();
+	last=(OrderList) deepClone(table.getOrderList());
 	orderLists.add(last);
 	table.setBusy(false);
 	table.getOrderList().getProducts().clear();
