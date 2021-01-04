@@ -11,10 +11,10 @@ public class StudentServicer extends EmployedWorker {
 	}
 
 	@Override
-	public void pay() {
+	public double pay(int days) {
 		Random random = new Random();
 
-		int x = random.nextInt(4) + 3;
+		return (random.nextInt(4) + 3)*days;
 
 	}
 

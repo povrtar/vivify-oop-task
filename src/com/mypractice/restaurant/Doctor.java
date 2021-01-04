@@ -12,9 +12,9 @@ public class Doctor extends EmployedWorker {
 	}
 
 	@Override
-	public void pay() {
+	public double pay(int days) {
 		Random random = new Random();
-		int x = random.nextInt(1600) + 400;
+		return  (random.nextInt(1600) + 400)*days;
 	
 	}
 

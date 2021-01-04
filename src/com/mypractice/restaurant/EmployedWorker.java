@@ -8,7 +8,7 @@ private Employer employer;
 private Proffesion proffesion;
 public  int pay;
 public boolean busy;
-public abstract void pay();
+public abstract double pay(int days);
 public EmployedWorker(String name) {
 	super(name);
 	

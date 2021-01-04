@@ -25,5 +25,9 @@ public void addWorker(EmployedWorker worker) {
 	
 	this.workers.add(worker);
 }
-
+public void pay(int days) {
+	for(EmployedWorker worker:workers) {
+		worker.pay(days);
+	}
+}
 }
