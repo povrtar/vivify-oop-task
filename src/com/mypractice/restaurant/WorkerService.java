@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkerService {
+	
 public static void main (String[] args) {
+	
 	List<Employer> employers=new ArrayList<>();
 	List<EmployedWorker> workers=new ArrayList<>();
 	for (int i=0;i<4;i++) {
@@ -55,7 +57,7 @@ public static void main (String[] args) {
 		}
 	}
 	
-	//izmena postojeceg objekt sa novim objektom koji je instanciran od studentServicer objekt
+	//izmena postojeceg objekt sa novim objektom koji je instanca Doctor ili Developer klase
 	
 	for(EmployedWorker worker:workers) {
 		if(worker instanceof StudentServicer) {
