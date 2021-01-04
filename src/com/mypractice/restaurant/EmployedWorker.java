@@ -36,13 +36,6 @@ public void setProffesion(Proffesion proffesion) {
 	this.proffesion = proffesion;
 }
 
-public int getPay() {
-	return pay;
-}
-
-public void setPay(int pay) {
-	this.pay = pay;
-}
 public boolean isBusy() {
 	return busy;
 }
