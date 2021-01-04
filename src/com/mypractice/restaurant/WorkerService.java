@@ -12,7 +12,7 @@ public static void main (String[] args) {
 		employers.add(employer);
 	}
 	for(int i=0;i<20;i++) {
-		EmployedWorker student=new EmployedWorker("Student "+i);
+		EmployedWorker student=new StudentServicer("Student "+i);
 				student.setProffesion(Proffesion.STUDENT);;
 		workers.add(student);
 		if(i<5) {
@@ -23,11 +23,11 @@ public static void main (String[] args) {
 		}
 	}
 	for(int i=0;i<10;i++) {
-		EmployedWorker doctor=new EmployedWorker("Doctor "+i);
+		EmployedWorker doctor=new Doctor("Doctor "+i);
 		doctor.setProffesion(Proffesion.DOCTOR);
 		workers.add(doctor);
 		
-		EmployedWorker developer=new EmployedWorker("Developer "+i);
+		EmployedWorker developer=new Developer("Developer "+i);
 		developer.setProffesion(Proffesion.DEVELOPER);
 		if(i<5) {
 			employers.get(2).addWorker(doctor);
@@ -35,11 +35,14 @@ public static void main (String[] args) {
 		}
 		workers.add(developer);
 	}
+	
 	for(EmployedWorker worker:workers) {
 		if(worker.getProffesion()==Proffesion.STUDENT){
 			worker.setBusy(false);
 		}
 	}
+	//izmena struke po enum vrednosti
+	//na ovaj nacin se ne menja clasa radnika, samo polje
 	int i=0;
 	for(EmployedWorker worker:workers) {
 		if(worker.getProffesion()==Proffesion.STUDENT) {
@@ -49,6 +52,23 @@ public static void main (String[] args) {
 				worker.setProffesion(Proffesion.DOCTOR);
 			}
 			i++;
+		}
+	}
+	
+	//izmena postojeceg objekt sa novim objektom koji je instanciran od studentServicer objekt
+	
+	for(EmployedWorker worker:workers) {
+		if(worker instanceof StudentServicer) {
+			EmployedWorker newWorker;
+			if(i%2!=0) {
+			newWorker=new StudentServicer(worker.getName());
+			
+			}else {
+			 newWorker=new Doctor(worker.getName());
+			}
+			newWorker.setAddress(worker.getAddress());
+			i++;
+			worker=newWorker;
 		}
 	}
 }
