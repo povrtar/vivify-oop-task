@@ -28,4 +28,8 @@ static int getHolidayDays(List<Absence> absences,LocalDate date) {
 	}
 	return counter;
 }
+public void addAbsence(Absence absence) {
+	absences.add(absence);
+	
+}
 }
