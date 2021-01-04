@@ -4,15 +4,18 @@ import java.util.Random;
 
 public class Doctor extends EmployedWorker {
 
-	public Doctor(String string) {
-		super.setName(string);
+	
+
+	public Doctor(String name) {
+		super(name);
+		
 	}
 
 	@Override
-	public int payable() {
+	public void pay() {
 		Random random = new Random();
 		int x = random.nextInt(1600) + 400;
-		return x;
+	
 	}
 
 }

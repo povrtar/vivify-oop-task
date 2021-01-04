@@ -1,13 +1,14 @@
 package com.mypractice.restaurant;
 
-public  class EmployedWorker extends Radnik{
+public abstract class EmployedWorker extends Radnik{
 
 private boolean onHoliday;
 private Employer employer;
-private double payable;
+
 private Proffesion proffesion;
 public  int pay;
 public boolean busy;
+public abstract void pay();
 public EmployedWorker(String name) {
 	super(name);
 	
@@ -27,12 +28,7 @@ public Employer getEmployer() {
 public void setEmployer(Employer employer) {
 	this.employer = employer;
 }
-public double getPayable() {
-	return payable;
-}
-public void setPayable(double payable) {
-	this.payable = payable;
-}
+
 public Proffesion getProffesion() {
 	return proffesion;
 }
