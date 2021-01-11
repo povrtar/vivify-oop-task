@@ -2,13 +2,14 @@ package com.mypractice.restaurant;
 
 import java.util.Random;
 
-public class StudentServicer extends EmployedWorker {
+public class Student extends Worker {
 
 
-	public StudentServicer(String name) {
+	public Student(String name) {
 		super(name);
 		
 	}
+
 
 	@Override
 	public double pay(int days) {

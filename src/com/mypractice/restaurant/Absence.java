@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Absence {
 private LocalDate date;
 private int days;
-private EmployedWorker worker;
-public Absence(LocalDate date, int days, EmployedWorker worker) {
+private Worker worker;
+public Absence(LocalDate date, int days, Worker worker) {
 	super();
 	this.date = date;
 	this.days = days;
@@ -24,10 +24,10 @@ public int getDays() {
 public void setDays(int days) {
 	this.days = days;
 }
-public EmployedWorker getWorker() {
+public Worker getWorker() {
 	return worker;
 }
-public void setWorker(EmployedWorker worker) {
+public void setWorker(Worker worker) {
 	this.worker = worker;
 }
 

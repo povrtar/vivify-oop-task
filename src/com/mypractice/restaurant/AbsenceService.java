@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AbsenceService {
 private List<Absence> absences=new ArrayList<>();
-public int  getAbsencesByWorkerAndDate(EmployedWorker worker,LocalDate date){
+public int  getAbsencesByWorkerAndDate(Worker worker,LocalDate date){
 List<Absence> workerAbsences=new ArrayList<>();
 for(Absence absence:absences) {
 	if(absence.getWorker().equals(worker)) {

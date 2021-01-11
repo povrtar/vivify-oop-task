@@ -2,7 +2,7 @@ package com.mypractice.restaurant;
 
 import java.util.Random;
 
-public class Doctor extends EmployedWorker {
+public class Doctor extends Worker {
 
 	
 
