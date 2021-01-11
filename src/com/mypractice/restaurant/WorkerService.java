@@ -40,14 +40,15 @@ public static void main (String[] args) {
 		Worker developer=employerFactory.getEmployer("Developer","Employer "+i);
 		developer.setProffesion(Proffesion.DEVELOPER);
 		absenceService.addAbsence(new Absence(LocalDate.now(),10,developer));	
+		workers.add(developer);
+		System.out.println(developer.toString());
 		if(i<5) {
 			employers.get(2).addWorker(doctor);
 			doctor.setEmployer(employers.get(2));
 			employers.get(3).addWorker(developer);
 			developer.setEmployer(employers.get(3));
 		}
-		workers.add(developer);
-		System.out.println(developer.toString());
+		
 	}
 	
 	for(Worker worker:workers) {
@@ -58,6 +59,7 @@ public static void main (String[] args) {
 	//izmena struke po enum vrednosti
 	//na ovaj nacin se ne menja clasa radnika, samo polje
 	int i=0;
+	/*
 	for(Worker worker:workers) {
 		if(worker.getProffesion()==Proffesion.STUDENT) {
 			if(i%2!=0) {
@@ -68,9 +70,9 @@ public static void main (String[] args) {
 			i++;
 		}
 	}
-	
+	*/
 	//izmena postojeceg objekt sa novim objektom koji je instanca Doctor ili Developer klase
-	
+	System.out.println("Students to developers and doctors");
 	for(Worker worker:workers) {
 		if(worker instanceof Student) {
 			Worker newWorker;
@@ -86,7 +88,7 @@ public static void main (String[] args) {
 			newWorker.setAddress(worker.getAddress());
 			i++;
 			worker=newWorker;
-			System.out.println("Students to developers and doctors");
+			
 			System.out.println(worker.toString());
 		}
 	}
