@@ -30,5 +30,9 @@ public Worker getWorker() {
 public void setWorker(Worker worker) {
 	this.worker = worker;
 }
+@Override
+public String toString() {
+	return "Absence [date=" + date + ", days=" + days + ", worker=" + worker.toString() + "]";
+}
 
 }

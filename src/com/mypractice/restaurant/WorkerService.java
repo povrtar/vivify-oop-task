@@ -7,7 +7,7 @@ import java.util.List;
 public class WorkerService {
 	
 public static void main (String[] args) {
-	AbsenceService absenceService=new AbsenceService();
+	AbsenceService absenceService=AbsenceService.getInstance();
 	List<Employer> employers=new ArrayList<>();
 	List<Worker> workers=new ArrayList<>();
 	EmployerFactory employerFactory=new EmployerFactory();
@@ -92,5 +92,9 @@ public static void main (String[] args) {
 			System.out.println(worker.toString());
 		}
 	}
+	for(Absence absence:absenceService.getAbsences()) {
+		System.out.println(absence.toString());
+	}
 }
+
 }

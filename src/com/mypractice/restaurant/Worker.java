@@ -42,6 +42,11 @@ public Employer getEmployer() {
 }
 
 public void setEmployer(Employer employer) {
+	if(employer!=null) {
+		this.busy=true;
+	}else {
+		this.busy=false;
+	}
 	this.employer = employer;
 }
 
@@ -56,7 +61,7 @@ public boolean isBusy() {
 	return busy;
 }
 public void setBusy(boolean busy) {
-	this.busy = busy;
+	this.busy=busy;
 }
 
 public boolean isOnHoliday() {

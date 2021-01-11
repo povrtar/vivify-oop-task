@@ -5,7 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbsenceService {
-private List<Absence> absences=new ArrayList<>();
+	
+private static List<Absence> absences;
+private static final AbsenceService instance=new AbsenceService();
+private AbsenceService() {
+	absences=new ArrayList<>();
+}
+public static AbsenceService getInstance() {
+	return instance;
+}
 public int  getAbsencesByWorkerAndDate(Worker worker,LocalDate date){
 List<Absence> workerAbsences=new ArrayList<>();
 for(Absence absence:absences) {
@@ -31,5 +39,8 @@ static int getHolidayDays(List<Absence> absences,LocalDate date) {
 public void addAbsence(Absence absence) {
 	absences.add(absence);
 	
+}
+public List<Absence> getAbsences() {
+	return absences;
 }
 }
