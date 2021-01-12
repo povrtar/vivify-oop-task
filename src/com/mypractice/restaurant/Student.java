@@ -14,8 +14,9 @@ public class Student extends Worker {
 	@Override
 	public double pay(int days) {
 		Random random = new Random();
-
-		return (random.nextInt(4) + 3)*days;
+		double pay=(random.nextInt(4) + 3)*days;
+		System.out.println("Student payed "+pay);
+		return pay;
 
 	}
 

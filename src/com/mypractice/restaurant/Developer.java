@@ -14,7 +14,9 @@ public class Developer extends Worker{
 	@Override
 	public double pay(int days) {
 		Random random = new Random();
-		return ( random.nextInt(90) + 10)*days;
+		double pay=( random.nextInt(90) + 10)*days;
+		System.out.println("Developer payed: "+pay);
+		return pay;
 		
 	}
 

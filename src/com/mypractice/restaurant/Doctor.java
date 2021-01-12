@@ -14,7 +14,9 @@ public class Doctor extends Worker {
 	@Override
 	public double pay(int days) {
 		Random random = new Random();
-		return  (random.nextInt(1600) + 400)*days;
+		double pay=random.nextInt(1600) + 400;
+		System.out.println("Doctor payed "+pay);
+		return  pay;
 	
 	}
 

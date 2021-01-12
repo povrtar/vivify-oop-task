@@ -19,36 +19,38 @@ public static void main (String[] args) {
 		Worker student=employerFactory.getEmployer("Student","Employer "+i);
 				student.setProffesion(Proffesion.STUDENT);
 				
-			absenceService.addAbsence(new Absence(LocalDate.now(),10,student));	
+			
 		workers.add(student);
 		if(i<5) {
 			employers.get(0).addWorker(student);
 			student.setEmployer(employers.get(0));
+			absenceService.addAbsence(new Absence(LocalDate.now(),10,student));	
 		}
 		if(i>4&&i<10) {
 			employers.get(1).addWorker(student);
 			student.setEmployer(employers.get(1));
+			absenceService.addAbsence(new Absence(LocalDate.now(),10,student));	
 		}
 		System.out.println(student.toString());
 	}
 	for(int i=0;i<10;i++) {
 		Worker doctor=employerFactory.getEmployer("Doctor","Employer "+i);
-		doctor.setProffesion(Proffesion.DOCTOR);
-		absenceService.addAbsence(new Absence(LocalDate.now(),10,doctor));	
-		workers.add(doctor);
-		System.out.println(doctor.toString());
+		doctor.setProffesion(Proffesion.DOCTOR);			
+		workers.add(doctor);	
 		Worker developer=employerFactory.getEmployer("Developer","Employer "+i);
-		developer.setProffesion(Proffesion.DEVELOPER);
-		absenceService.addAbsence(new Absence(LocalDate.now(),10,developer));	
+		developer.setProffesion(Proffesion.DEVELOPER);		
 		workers.add(developer);
-		System.out.println(developer.toString());
+		
 		if(i<5) {
 			employers.get(2).addWorker(doctor);
 			doctor.setEmployer(employers.get(2));
 			employers.get(3).addWorker(developer);
 			developer.setEmployer(employers.get(3));
+			absenceService.addAbsence(new Absence(LocalDate.now(),10,doctor));
+			absenceService.addAbsence(new Absence(LocalDate.now(),30,developer));
 		}
-		
+		System.out.println(doctor.toString());
+		System.out.println(developer.toString());
 	}
 	
 	for(Worker worker:workers) {
@@ -95,6 +97,10 @@ public static void main (String[] args) {
 	for(Absence absence:absenceService.getAbsences()) {
 		System.out.println(absence.toString());
 	}
-}
 
+for(Employer employer:employers) {
+	
+	employer.pay(LocalDate.now());
+}
+}
 }

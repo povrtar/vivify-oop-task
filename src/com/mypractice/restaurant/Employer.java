@@ -1,5 +1,6 @@
 package com.mypractice.restaurant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +29,14 @@ public void addWorker(Worker worker) {
 	
 	this.workers.add(worker);
 }
-public void pay(int days) {
+/**
+ * 
+ */
+public void pay(LocalDate date) {
 	for(Worker worker:workers) {
+		int workingDays=30;
+		int days=workingDays-AbsenceService.getHolidayDays(worker, date);
+		System.out.println("days for pay "+days);
 		worker.pay(days);
 	}
 }

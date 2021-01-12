@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AbsenceService {
 	
-private static List<Absence> absences;
+private static  List<Absence> absences;
 private static final AbsenceService instance=new AbsenceService();
 private AbsenceService() {
 	absences=new ArrayList<>();
@@ -14,26 +14,29 @@ private AbsenceService() {
 public static AbsenceService getInstance() {
 	return instance;
 }
-public int  getAbsencesByWorkerAndDate(Worker worker,LocalDate date){
-List<Absence> workerAbsences=new ArrayList<>();
-for(Absence absence:absences) {
-	if(absence.getWorker().equals(worker)) {
-		workerAbsences.add(absence);
-		
+
+private static List<Absence> getAbsencesByWorker(Worker worker){
+	List<Absence> workerAbsences=new ArrayList<>();
+	for(Absence absence:absences) {
+		if(absence.getWorker().equals(worker)) {
+			workerAbsences.add(absence);
+			
+		}
 	}
+	return workerAbsences;
 }
-return getHolidayDays(workerAbsences,date);
-}
-static int getHolidayDays(List<Absence> absences,LocalDate date) {
+static int getHolidayDays(Worker worker,LocalDate date) {
 	int counter=0;
 
-	for(Absence absence:absences) {
+	for(Absence absence:getAbsencesByWorker(worker)) {
 		for(int i=0;i<absence.getDays();i++) {
-			if(absence.getDate().plusDays(i).getMonth().equals(date.getMonth())) {
+			
+			if((absence.getDate().plusDays(i)).getMonth().equals(date.getMonth())) {
 				counter++;
 			}
 		}
 	}
+	System.out.println("Days on holiday "+counter);
 	return counter;
 }
 public void addAbsence(Absence absence) {
